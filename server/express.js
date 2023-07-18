@@ -71,8 +71,27 @@ const renderResponse = async (req, res, next) => {
   let reqUrl = req.originalUrl;
   var fullUrl = getProtocol(req) + "://" + req.get("host") + req.originalUrl;
   fullUrl = fullUrl.replace(":" + PORT, "");
-  const currentRoute =
+  let currentRoute =
     Routes.find((route) => matchPath(req.originalUrl, route.path)) || {};
+
+    if (Object.keys(currentRoute).length === 0 && reqUrl.includes('/team-members/')) {
+      console.log("reqUrl.include('/team-members/')---------------------------------------------");
+      const matchedRoute = Routes.find(route => {
+        const params = route.path.match(/:[^/]+/g) || [];
+        console.log('Params: ', params);
+        const regex = new RegExp('^' + route.path.replace(/:[^/]+/g, '([^/]+)') + '$');
+        console.log('regex: ', regex);
+
+        console.log(
+          ' regex.test(urlPath) && params.length > 0: ',
+          regex.test(reqUrl) && params.length > 0
+        );
+        return regex.test(reqUrl) && params.length > 0;
+      });
+      console.log('matchedRoute', matchedRoute);
+      currentRoute = matchedRoute;
+      console.log("reqUrl.include('/team-members/')---------------------------------------------");
+    } 
   let promise;
   let metaPromise;
 

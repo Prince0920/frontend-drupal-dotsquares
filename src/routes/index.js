@@ -12,6 +12,8 @@ import Solutions, { loadData as SolutionsData, getMetaData as SolutionsMeta } fr
 import TermsAndConditions, { loadData as TermsData, getMetaData as TermsMeta } from "../pages/terms/TermsAndConditions";
 import Thanks, { loadData as ThanksData, getMetaData as ThanksMeta } from "../pages/thanks/Thanks";
 import WhyDs, { loadData as WhyDsData, getMetaData as WhyDsMeta } from "../pages/whyds/WhyDs";
+import TeamMember, { loadData as TeamMembersData, getMetaData as TeamMembersMeta } from "../pages/teamMembers/TeamMember";
+import Member, { loadData as TeamMemberData, getMetaData as TeamMemberMeta } from "../pages/teamMembers/subpages/Member";
 
 const routes = () => {
   return [
@@ -31,6 +33,22 @@ const routes = () => {
       element: <Services />,
       loadData: ServicesData,
       getMetaData: ServicesMeta
+    },
+    {
+      path: "/team-members",
+      private: true,
+      component: TeamMember,
+      element: <TeamMember />,
+      loadData: TeamMembersData,
+      getMetaData: TeamMembersMeta
+    },
+    {
+      path: "/team-members/:id",
+      private: true,
+      component: Member,
+      element: <Member />,
+      loadData: TeamMemberData,
+      getMetaData: TeamMemberMeta
     },
     {
       path: "/solutions",
