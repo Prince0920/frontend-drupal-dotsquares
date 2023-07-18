@@ -1,0 +1,55 @@
+{
+  "name": "drupal_headless",
+  "version": "0.1.0",
+  "homepage": "/",
+  "private": true,
+  "dependencies": {
+    "@babel/register": "^7.17.7",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.26.0",
+    "compression-webpack-plugin": "^9.2.0",
+    "dotenv": "^16.0.0",
+    "express-static-gzip": "^2.1.5",
+    "ignore-styles": "^5.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-meta-tags": "^1.0.1",
+    "react-owl-carousel": "^2.3.3",
+    "react-owl-carousel2": "^0.3.0",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "react-toastify": "^8.2.0",
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "PORT=3003 --max_old_space_size=4096 react-scripts start",
+    "serve": "serve -s build",
+    "build": "react-scripts build",
+    "ssr": "node server",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

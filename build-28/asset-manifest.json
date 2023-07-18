@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.00362c8a.css",
+    "main.js": "/static/js/main.d7498e5e.js",
+    "static/js/787.94602c5c.chunk.js": "/static/js/787.94602c5c.chunk.js",
+    "static/media/form-bg.jpg": "/static/media/form-bg.a0f84fd5ad012dc573d6.jpg",
+    "static/media/bg-banner.jpg": "/static/media/bg-banner.813eb06c74424346817d.jpg",
+    "static/media/testimonial-bg.jpg": "/static/media/testimonial-bg.c4a97134b13680db424b.jpg",
+    "static/media/contact-form-bg.jpg": "/static/media/contact-form-bg.942c16b01e05773880f5.jpg",
+    "static/media/service-bg.jpg": "/static/media/service-bg.24943c5f3cb98b99aed5.jpg",
+    "static/media/why-ds-bg.jpg": "/static/media/why-ds-bg.48ccb17905a8198381f6.jpg",
+    "static/media/strip-bg.jpg": "/static/media/strip-bg.7f46859e82cdb53b425e.jpg",
+    "index.html": "/index.html",
+    "main.00362c8a.css.map": "/static/css/main.00362c8a.css.map",
+    "main.d7498e5e.js.map": "/static/js/main.d7498e5e.js.map",
+    "787.94602c5c.chunk.js.map": "/static/js/787.94602c5c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.00362c8a.css",
+    "static/js/main.d7498e5e.js"
+  ]
+}
