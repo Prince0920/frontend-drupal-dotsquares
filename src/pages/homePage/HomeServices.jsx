@@ -68,6 +68,9 @@ const HomeServices = {
     },
     getTermsAndConditions: (id) => {
         return WebApi.getRequest("https://drupal2.24livehost.com/terms-and-conditions")
+    },
+    getBlogs: () => {
+        return WebApi.getRequest("https://drupal2.24livehost.com/blogs")
     }
 }
 
