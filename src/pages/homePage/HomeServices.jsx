@@ -68,7 +68,13 @@ const HomeServices = {
     },
     getTermsAndConditions: (id) => {
         return WebApi.getRequest("https://drupal2.24livehost.com/terms-and-conditions")
-    }
+    },
+    getAllTeamMembers: () => {
+        return WebApi.getRequest("https://drupal2.24livehost.com/team-members")
+    },
+    getTeamMemberData: (id) => {
+        return WebApi.getRequest("https://drupal2.24livehost.com/team-members/"+id)
+    },
 }
 
 export default HomeServices;
