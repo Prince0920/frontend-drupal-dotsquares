@@ -44,14 +44,14 @@ export default class BlogList extends Component {
                         <a
                           className='ds-btn'
                           href={`/blog/${item.nid}`}>
-                          View Blog
+                          Read More
                         </a>
                       </div>
                       <div className='case-study-detail'>
                         <h2 dangerouslySetInnerHTML={{ __html: item.title }} />
                         <div className="text-truncate"
                           dangerouslySetInnerHTML={{
-                            __html: this.truncateText(item.body, 200), // Truncate text here
+                            __html: item.body, 
                           }}
                         />
                       </div>
