@@ -36,10 +36,9 @@ export default class BlogList extends Component {
                           alt='04'
                           className='lazyload'
                         />
-
                         <a
                           className='ds-btn'
-                          href='/case-study/nhtsa'>
+                          href={`/blog/${item.nid}`}>
                           View Blog
                         </a>
                       </div>

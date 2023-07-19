@@ -58,7 +58,7 @@ export default class BlogDetail extends Component {
               className='site-main'>
               {/* headbannner */}
               <div className='header-title'>
-                <h1>Blog Title</h1>
+                <h1>{PageData[0]?.title}</h1>
               </div>
               {/* headbanner  */}
 
@@ -124,8 +124,8 @@ export default class BlogDetail extends Component {
   }
 }
 
-export const loadData = () => {
-  return Promise.all([HomeServices.getBlogData(57)]);
+export const loadData = id => {
+  return Promise.all([HomeServices.getBlogData(id)]);
 };
 
 export const getMetaData = () => {
