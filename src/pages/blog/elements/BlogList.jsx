@@ -18,6 +18,11 @@ export default class BlogList extends Component {
     }
   }
 
+  // Function to truncate text after a specified number of characters
+  truncateText = (text, maxLength) => {
+    return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+  };
+
   render() {
     var { PageData, ImgBaseUrl } = this.state;
     return (
@@ -44,9 +49,9 @@ export default class BlogList extends Component {
                       </div>
                       <div className='case-study-detail'>
                         <h2 dangerouslySetInnerHTML={{ __html: item.title }} />
-                        <div
+                        <div className="text-truncate"
                           dangerouslySetInnerHTML={{
-                            __html: item.body,
+                            __html: this.truncateText(item.body, 200), // Truncate text here
                           }}
                         />
                       </div>
