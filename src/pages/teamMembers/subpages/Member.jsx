@@ -60,7 +60,7 @@ export default class Member extends Component {
               className='site-main'>
               {/* headbannner */}
               <div className='header-title'>
-                <h1>Team Member Name</h1>
+                <h1>{PageData[0]?.title}</h1>
               </div>
               {/* headbanner  */}
 
