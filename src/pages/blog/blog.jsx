@@ -32,7 +32,7 @@ export default class Blog extends Component {
         id='page'
         className='site'>
         <MetaTags>
-          <title>Featured Case Studies - Dotsquares | Drupal Development Company</title>
+          <title>blog | Drupal9DOT</title>
           <meta
             name='description'
             content='Dotsquares case studies of real companies working with Drupal CMS. Check out the success stories of a Web Development company that has been operating since 2002.'
@@ -48,15 +48,15 @@ export default class Blog extends Component {
           />
           <meta
             property='og:title'
-            content='Featured Case Studies - Dotsquares | Drupal Development Company'
+            content='blog | Drupal9DOT'
           />
           <meta
             property='og:description'
-            content='Dotsquares case studies of real companies working with Drupal CMS. Check out the success stories of a Web Development company that has been operating since 2002.'
+            content=''
           />
           <meta
             property='og:url'
-            content='https://drupal.dotsquares.com/case-studies/'
+            content='https://drupal.dotsquares.com/blog/'
           />
           <meta
             property='og:site_name'
@@ -116,5 +116,5 @@ export const loadData = () => {
 };
 
 export const getMetaData = () => {
-  return HomeServices.getMetaData('blogs');
+  return HomeServices.getMetaData('blog');
 };
