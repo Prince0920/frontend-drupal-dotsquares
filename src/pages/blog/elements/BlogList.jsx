@@ -37,7 +37,7 @@ export default class BlogList extends Component {
                       <div className='case-study-img'>
                         <img
                           loading='lazy'
-                          src={ImgBaseUrl + item.field_featured_image}
+                          src={ImgBaseUrl + item.field_media_image}
                           alt='04'
                           className='lazyload'
                         />
@@ -51,7 +51,7 @@ export default class BlogList extends Component {
                         <h2 dangerouslySetInnerHTML={{ __html: item.title }} />
                         <div className="text-truncate"
                           dangerouslySetInnerHTML={{
-                            __html: item.body, 
+                            __html: item.body,
                           }}
                         />
                       </div>

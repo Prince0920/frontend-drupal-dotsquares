@@ -87,14 +87,14 @@ export default class BlogDetail extends Component {
                       {PageData.length > 0 && (
                         <h2
                           dangerouslySetInnerHTML={{
-                            __html: PageData[0].title,
+                            __html: PageData[0].field_title_section,
                           }}
                         />
                       )}
                       {PageData.length > 0 && (
                         <div
                           dangerouslySetInnerHTML={{
-                            __html: PageData[0].body,
+                            __html: PageData[0].field_description_section,
                           }}
                         />
                       )}
@@ -104,7 +104,7 @@ export default class BlogDetail extends Component {
                         {PageData.length > 0 && (
                           <img
                             loading='lazy'
-                            src={ImgBaseUrl + PageData[0].field_featured_image}
+                            src={ImgBaseUrl + PageData[0].field_media_image}
                             alt='Medipro-2'
                             className='lazyload'
                           />
@@ -125,7 +125,7 @@ export default class BlogDetail extends Component {
 }
 
 export const loadData = id => {
-  return Promise.all([HomeServices.getBlogData(id)]);
+  return Promise.all([HomeServices.getBlogData(57)]);
 };
 
 export const getMetaData = () => {
