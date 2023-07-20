@@ -125,7 +125,7 @@ export default class BlogDetail extends Component {
 }
 
 export const loadData = id => {
-  return Promise.all([HomeServices.getBlogData(57)]);
+  return Promise.all([HomeServices.getBlogData(id)]);
 };
 
 export const getMetaData = () => {
