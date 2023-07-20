@@ -47,14 +47,19 @@ export default class BlogList extends Component {
                           Read More
                         </a>
                       </div>
-                      <div className='case-study-detail'>
-                        <h2 dangerouslySetInnerHTML={{ __html: item.title }} />
-                        <div className="text-truncate"
-                          dangerouslySetInnerHTML={{
-                            __html: item.body,
-                          }}
-                        />
-                      </div>
+
+                      <a
+                        href={`/blog/${item.nid}`}>
+                        <div className='case-study-detail' style={{color: "black"}}>
+                          <h2 dangerouslySetInnerHTML={{ __html: item.title }} />
+                          <div
+                            className='text-truncate'
+                            dangerouslySetInnerHTML={{
+                              __html: item.body,
+                            }}
+                          />
+                        </div>
+                      </a>
                     </div>
                   </div>
                 );

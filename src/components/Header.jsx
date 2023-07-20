@@ -150,6 +150,7 @@ export default class Header extends Component {
                                     ? "mega-indicator-mobile"
                                     : "mega-indicator"
                                 }
+                                style={{ marginRight: '0px'}}
                                 onClick={(e) => {
                                   e.preventDefault();
                                   this.setState({
