@@ -58,7 +58,7 @@ export default class BlogDetail extends Component {
               className='site-main'>
               {/* headbannner */}
               <div className='header-title'>
-                <h1>{PageData[0]?.title}</h1>
+                <h1>{PageData[0]?.field_title_section}</h1>
               </div>
               {/* headbanner  */}
 
