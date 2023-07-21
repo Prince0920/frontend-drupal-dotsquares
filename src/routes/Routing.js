@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import GlobalRoutes from "./index";
+import ComingSoon from "../pages/comingSoon/ComingSoon";
 
 export default function Routing(props) {
   return (
@@ -12,6 +13,10 @@ export default function Routing(props) {
           </Routes>
         );
       })}
+      <Routes>
+         {/* Catch-all route */}
+         <Route path="*" element={<ComingSoon />} />
+      </Routes>
     </>
   );
 }
