@@ -7,6 +7,14 @@ import Loader from '../../../components/Loader';
 import { Navigate } from 'react-router-dom';
 import MetaTags from 'react-meta-tags';
 import HomeServices from '../../homePage/HomeServices';
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+} from 'react-share';
 
 export default class BlogDetail extends Component {
   constructor(props) {
@@ -16,6 +24,7 @@ export default class BlogDetail extends Component {
       PageData: props.apiData ? props.apiData[0] : [],
       ImgBaseUrl: 'https://drupal2.24livehost.com',
       loading: false,
+      currentURL: '',
     };
   }
 
@@ -28,6 +37,7 @@ export default class BlogDetail extends Component {
     ) {
       this.setState({
         PageData: window.__ROUTE_DATA__.apiData[0],
+        currentURL: window.location.href,
       });
     }
   }
@@ -39,7 +49,7 @@ export default class BlogDetail extends Component {
   };
 
   render() {
-    var { PageData, ImgBaseUrl } = this.state;
+    var { PageData, ImgBaseUrl, currentURL } = this.state;
     return (
       <div
         id='page'
@@ -91,6 +101,40 @@ export default class BlogDetail extends Component {
                           }}
                         />
                       )}
+                      <div className='social-share-btn'>
+                        <FacebookShareButton url={currentURL}>
+                          <FacebookIcon />
+                        </FacebookShareButton>
+                        <LinkedinShareButton url={currentURL}>
+                          <LinkedinIcon />
+                        </LinkedinShareButton>
+                        <TwitterShareButton url={currentURL}>
+                          <TwitterIcon />
+                        </TwitterShareButton>
+                      </div>
+                      <div className='blog-author-data'>
+                        {/* Local Image */}
+                        {PageData.length > 0 && (
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: PageData[0].field_publish_date,
+                            }}
+                          />
+                        )}
+                        <img
+                          src={'/blog_author.png'}
+                          alt='author'
+                          className='local-image-class'
+                          style={{ height: '65px' }}
+                        />
+                        {PageData.length > 0 && (
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: PageData[0].field_author_name,
+                            }}
+                          />
+                        )}
+                      </div>
                       {PageData.length > 0 && (
                         <div
                           dangerouslySetInnerHTML={{
