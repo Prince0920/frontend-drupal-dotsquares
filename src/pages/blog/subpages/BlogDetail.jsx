@@ -6,7 +6,9 @@ import Loader from '../../../components/Loader';
 
 import { Navigate } from 'react-router-dom';
 import MetaTags from 'react-meta-tags';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import HomeServices from '../../homePage/HomeServices';
+import './BlogStyle.css';
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -25,6 +27,7 @@ export default class BlogDetail extends Component {
       ImgBaseUrl: 'https://drupal2.24livehost.com',
       loading: false,
       currentURL: '',
+      isCopied: false,
     };
   }
 
@@ -48,8 +51,19 @@ export default class BlogDetail extends Component {
     }
   };
 
+  onCopyText = () => {
+    this.setState({
+      isCopied: true,
+    });
+    setTimeout(() => {
+      this.setState({
+        isCopied: false,
+      });
+    }, 1000);
+  };
+
   render() {
-    var { PageData, ImgBaseUrl, currentURL } = this.state;
+    var { PageData, ImgBaseUrl, currentURL, isCopied } = this.state;
     return (
       <div
         id='page'
@@ -66,34 +80,50 @@ export default class BlogDetail extends Component {
             <main
               id='main'
               className='site-main'>
-              {/* headbannner */}
-              <div className='header-title'>
-                <h1>{PageData[0]?.field_title_section}</h1>
-              </div>
-              {/* headbanner  */}
-
-              {/* section  */}
-              <section className='full-headline'>
-                <div className='wrapper'>
-                  <div className='drupal-row'>
-                    <div className='drupal-col-12'>
-                      <div className='content-with-line'>
-                        <h2>We take pride to serve our customers with best quality services.</h2>
-                        <h2>
-                          Over the years, we have earned trust of many fortune 1000s of companies.
-                        </h2>
-                      </div>
-                    </div>
+              {/* <!--with-img-section start  here-->  */}
+              <section className='midpro-aest'>
+                <div className='top-banner'>
+                  <div className='img-part'>
+                    {PageData.length > 0 && (
+                      <img
+                        loading='lazy'
+                        src={ImgBaseUrl + PageData[0].field_media_image}
+                        alt='Medipro-2'
+                        className='lazyload'
+                      />
+                    )}
                   </div>
                 </div>
-              </section>
-              {/* section  */}
-
-              {/* <!--with-img-section start  here-->  */}
-              <section className='with-img-section midpro-aest'>
-                <div className='wrapper'>
+                <div className='wrapper blog-dtil-page'>
                   <div className='drupal-row drupal-align-items-center'>
-                    <div className='drupal-col-6 content-part-left'>
+                    <div className='blog-author-data'>
+                      {/* Local Image */}
+
+                      <div className='author-image-with-name'>
+                        <img
+                          src={'/blog_author.png'}
+                          alt='author'
+                          className='local-image-class'
+                          style={{ height: '65px' }}
+                        />
+                        By:
+                        {PageData.length > 0 && (
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: PageData[0].field_author_name,
+                            }}
+                          />
+                        )}
+                      </div>
+                      {PageData.length > 0 && (
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: PageData[0].field_publish_date,
+                          }}
+                        />
+                      )}
+                    </div>
+                    <div className='drupal-col-12'>
                       {PageData.length > 0 && (
                         <h2
                           dangerouslySetInnerHTML={{
@@ -111,49 +141,37 @@ export default class BlogDetail extends Component {
                         <TwitterShareButton url={currentURL}>
                           <TwitterIcon />
                         </TwitterShareButton>
+                        <CopyToClipboard
+                          text={currentURL}
+                          onCopy={this.onCopyText}>
+                          <div className='copy-area'>
+                            {isCopied && (
+                              <span className={`copy-feedback ${isCopied ? 'active' : ''}`}>
+                                Copied!
+                              </span>
+                            )}
+                            <svg
+                              xmlns='http://www.w3.org/2000/svg'
+                              width='30'
+                              height='30'
+                              fill='currentColor'
+                              class='bi bi-clipboard'
+                              viewBox='0 0 16 16'>
+                              <path d='M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z' />
+                              <path d='M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z' />
+                            </svg>
+                          </div>
+                        </CopyToClipboard>
                       </div>
-                      <div className='blog-author-data'>
-                        {/* Local Image */}
-                        {PageData.length > 0 && (
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: PageData[0].field_publish_date,
-                            }}
-                          />
-                        )}
-                        <img
-                          src={'/blog_author.png'}
-                          alt='author'
-                          className='local-image-class'
-                          style={{ height: '65px' }}
-                        />
-                        {PageData.length > 0 && (
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: PageData[0].field_author_name,
-                            }}
-                          />
-                        )}
-                      </div>
+
                       {PageData.length > 0 && (
                         <div
+                          className='blog-detail-description'
                           dangerouslySetInnerHTML={{
                             __html: PageData[0].field_description_section,
                           }}
                         />
                       )}
-                    </div>
-                    <div className='drupal-col-6'>
-                      <div className='img-part'>
-                        {PageData.length > 0 && (
-                          <img
-                            loading='lazy'
-                            src={ImgBaseUrl + PageData[0].field_media_image}
-                            alt='Medipro-2'
-                            className='lazyload'
-                          />
-                        )}
-                      </div>
                     </div>
                   </div>
                 </div>
