@@ -106,11 +106,11 @@ export default class BlogDetail extends Component {
                           className='local-image-class'
                           style={{ height: '65px' }}
                         />
-                        By:
+                        
                         {PageData.length > 0 && (
                           <div
                             dangerouslySetInnerHTML={{
-                              __html: PageData[0].field_author_name,
+                              __html: 'By: ' + PageData[0].field_author_name,
                             }}
                           />
                         )}
