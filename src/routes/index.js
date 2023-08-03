@@ -12,6 +12,8 @@ import Solutions, { loadData as SolutionsData, getMetaData as SolutionsMeta } fr
 import TermsAndConditions, { loadData as TermsData, getMetaData as TermsMeta } from "../pages/terms/TermsAndConditions";
 import Thanks, { loadData as ThanksData, getMetaData as ThanksMeta } from "../pages/thanks/Thanks";
 import WhyDs, { loadData as WhyDsData, getMetaData as WhyDsMeta } from "../pages/whyds/WhyDs";
+import Blog, { loadData as BlogsData, getMetaData as BlogsMeta } from "../pages/blog/blog";
+import BlogDetail, { loadData as BlogData, getMetaData as BlogMeta } from "../pages/blog/subpages/BlogDetail";
 
 const routes = () => {
   return [
@@ -117,6 +119,22 @@ const routes = () => {
       exact: true,
       component: Thanks,
       element: <Thanks />
+    },
+    {
+      path: "/blog",
+      exact: true,
+      component: CaseStudy,
+      element: <Blog />,
+      loadData: BlogsData,
+      getMetaData: BlogsMeta
+    },
+    {
+      path: "/blog/:id",
+      exact: true,
+      component: BlogDetail,
+      element: <BlogDetail />,
+      loadData: BlogData,
+      getMetaData: BlogMeta
     },
   ];
 };

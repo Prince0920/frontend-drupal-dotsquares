@@ -71,8 +71,18 @@ const renderResponse = async (req, res, next) => {
   let reqUrl = req.originalUrl;
   var fullUrl = getProtocol(req) + "://" + req.get("host") + req.originalUrl;
   fullUrl = fullUrl.replace(":" + PORT, "");
-  const currentRoute =
+  let currentRoute =
     Routes.find((route) => matchPath(req.originalUrl, route.path)) || {};
+
+    if (Object.keys(currentRoute).length === 0 && reqUrl.includes('/blog/')) {
+      const matchedRoute = Routes.find(route => {
+        const params = route.path.match(/:[^/]+/g) || [];
+        const regex = new RegExp('^' + route.path.replace(/:[^/]+/g, '([^/]+)') + '$');
+        return regex.test(reqUrl) && params.length > 0;
+      });
+      currentRoute = matchedRoute;
+    } 
+
   let promise;
   let metaPromise;
 

@@ -1,0 +1,110 @@
+import React, { Component } from 'react';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import Loader from '../../components/Loader';
+import MetaTags from 'react-meta-tags';
+import HomeServices from '../homePage/HomeServices';
+import BlogList from './elements/BlogList';
+
+export default class Blog extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      scroll: false,
+    };
+  }
+
+  handleCallback = value => {
+    if (value != this.state.loading) {
+      this.setState({ loading: value });
+    }
+  };
+
+  render() {
+    let metaData = {};
+    if (typeof window !== 'undefined' && window.__ROUTE_DATA__ && window.__ROUTE_DATA__.metaData) {
+      metaData = window.__ROUTE_DATA__.metaData;
+    }
+
+    return (
+      <div
+        id='page'
+        className='site'>
+        {/* <MetaTags>
+          <title>blog | Drupal9DOT</title>
+          <meta
+            name='description'
+            content='Dotsquares case studies of real companies working with Drupal CMS. Check out the success stories of a Web Development company that has been operating since 2002.'
+          />
+
+          <meta
+            property='og:locale'
+            content='en_US'
+          />
+          <meta
+            property='og:type'
+            content='article'
+          />
+          <meta
+            property='og:title'
+            content='blog | Drupal9DOT'
+          />
+          <meta
+            property='og:description'
+            content=''
+          />
+          <meta
+            property='og:url'
+            content='https://drupal.dotsquares.com/blog/'
+          />
+          <meta
+            property='og:site_name'
+            content='Drupal Dotsquares'
+          />
+          <meta
+            property='article:modified_time'
+            content='2021-08-04T10:53:42+00:00'
+          />
+          <meta
+            name='twitter:card'
+            content='summary_large_image'
+          />
+        </MetaTags> */}
+        <Header parentCallback={this.handleCallback} />
+        {this.state.loading && <Loader />}
+
+        <div
+          className='site-content'
+          id='content'>
+          <div
+            id='primary'
+            className='content-area'>
+            <main
+              id='main'
+              className='site-main'>
+              <div className='header-title'>
+                <h1>Blogs</h1>
+              </div>
+
+              <div
+                className='blog-list'
+                style={{ marginTop: '30px' }}>
+                <BlogList />
+              </div>
+            </main>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+}
+
+export const loadData = () => {
+  return Promise.all([HomeServices.getBlogs()]);
+};
+
+export const getMetaData = () => {
+  return HomeServices.getMetaData('blog');
+};
