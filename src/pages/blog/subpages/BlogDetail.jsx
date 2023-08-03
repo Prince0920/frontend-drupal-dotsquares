@@ -191,5 +191,5 @@ export const loadData = id => {
 };
 
 export const getMetaData = () => {
-  return HomeServices.getMetaData('blog');
+  return HomeServices.getMetaData('Unveiling Key Insights');
 };

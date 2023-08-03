@@ -2582,6 +2582,18 @@ p {
   transform: translateX(200%) rotate(225deg);
   animation-delay: -625ms;
 }
+
+/* added new css start*/
+.primary-navigation .mega-menu > li:last-child {
+  margin-left: 15px;
+}
+
+.primary-navigation .mega-menu .mega-indicator {
+	display: inline-block;
+	margin-right: -3px;
+}
+/* added new css end*/
+
 @keyframes bubble {
   0%,
   100% {

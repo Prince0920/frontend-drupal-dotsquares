@@ -31,7 +31,7 @@ export default class Blog extends Component {
       <div
         id='page'
         className='site'>
-        <MetaTags>
+        {/* <MetaTags>
           <title>blog | Drupal9DOT</title>
           <meta
             name='description'
@@ -70,7 +70,7 @@ export default class Blog extends Component {
             name='twitter:card'
             content='summary_large_image'
           />
-        </MetaTags>
+        </MetaTags> */}
         <Header parentCallback={this.handleCallback} />
         {this.state.loading && <Loader />}
 
@@ -87,21 +87,11 @@ export default class Blog extends Component {
                 <h1>Blogs</h1>
               </div>
 
-              <section className='full-headline'>
-                <div className='wrapper'>
-                  <div className='drupal-row'>
-                    <div className='drupal-col-12'>
-                      <div className='content-with-line'>
-                        <h2>We take pride to serve our customers with best quality services.</h2>
-                        <h2>
-                          Over the years, we have earned trust of many fortune 1000s of companies.
-                        </h2>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <BlogList />
+              <div
+                className='blog-list'
+                style={{ marginTop: '30px' }}>
+                <BlogList />
+              </div>
             </main>
           </div>
         </div>
