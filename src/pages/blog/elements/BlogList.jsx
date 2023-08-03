@@ -43,13 +43,13 @@ export default class BlogList extends Component {
                         />
                         <a
                           className='ds-btn'
-                          href={`/blog/${item.nid}`}>
+                          href={`/blog/${item.field_page_url}`}>
                           Read More
                         </a>
                       </div>
 
                       <a
-                        href={`/blog/${item.nid}`}>
+                        href={`/blog/${item.field_page_url}`}>
                         <div className='case-study-detail' style={{color: "black"}}>
                           <h2 dangerouslySetInnerHTML={{ __html: item.title }} />
                           <div
