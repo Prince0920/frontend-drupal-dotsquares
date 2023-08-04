@@ -127,7 +127,7 @@ export default class BlogDetail extends Component {
                       {PageData.length > 0 && (
                         <h2
                           dangerouslySetInnerHTML={{
-                            __html: PageData[0].field_title_section,
+                            __html: PageData[0].title,
                           }}
                         />
                       )}
