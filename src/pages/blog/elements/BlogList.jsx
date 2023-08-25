@@ -1,17 +1,22 @@
-import React, { Component } from "react";
-import WebApi from "../../../config/WebApi";
+import React, { Component } from 'react';
+import WebApi from '../../../config/WebApi';
 
 export default class BlogList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       PageData: [],
-      ImgBaseUrl: "https://drupal2.24livehost.com",
+      ImgBaseUrl: 'https://drupal2.24livehost.com',
     };
   }
 
   componentDidMount() {
-    if (typeof window !== 'undefined' && window.__ROUTE_DATA__ && window.__ROUTE_DATA__.apiData && typeof window.__ROUTE_DATA__.apiData[0] !== 'undefined') {
+    if (
+      typeof window !== 'undefined' &&
+      window.__ROUTE_DATA__ &&
+      window.__ROUTE_DATA__.apiData &&
+      typeof window.__ROUTE_DATA__.apiData[0] !== 'undefined'
+    ) {
       this.setState({
         PageData: window.__ROUTE_DATA__.apiData[0],
       });
@@ -20,17 +25,17 @@ export default class BlogList extends Component {
 
   // Function to truncate text after a specified number of characters
   truncateText = (text, maxLength) => {
-    return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
   };
 
   render() {
     var { PageData, ImgBaseUrl } = this.state;
     return (
-      <div className="case-study-list">
-        <div className="wrapper">
-          <div className="drupal-row">
+      <div className='case-study-list'>
+        <div className='wrapper'>
+          <div className='drupal-row'>
             {PageData.length > 0 &&
-              PageData.map((item) => {
+              PageData.map(item => {
                 return (
                   <div className='drupal-col-6 case-study-box'>
                     <div className='box-inner'>
@@ -48,10 +53,11 @@ export default class BlogList extends Component {
                         </a>
                       </div>
 
-                      <a
-                        href={`/blog/${item.field_page_url}`}>
-                        <div className='case-study-detail' style={{color: "black"}}>
-                          <h2 dangerouslySetInnerHTML={{ __html: item.title }} />
+                      <a href={`/blog/${item.field_page_url}`}>
+                        <div
+                          className='case-study-detail'
+                          style={{ color: 'black' }}>
+                          <h1 dangerouslySetInnerHTML={{ __html: item.title }} />
                           <div
                             className='text-truncate'
                             dangerouslySetInnerHTML={{

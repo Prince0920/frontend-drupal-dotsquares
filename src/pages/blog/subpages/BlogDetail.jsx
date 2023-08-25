@@ -125,7 +125,7 @@ export default class BlogDetail extends Component {
                     </div>
                     <div className='drupal-col-12'>
                       {PageData.length > 0 && (
-                        <h2
+                        <h1
                           dangerouslySetInnerHTML={{
                             __html: PageData[0].title,
                           }}
