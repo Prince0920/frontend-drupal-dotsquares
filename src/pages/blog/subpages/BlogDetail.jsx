@@ -106,7 +106,7 @@ export default class BlogDetail extends Component {
                           className='local-image-class'
                           style={{ height: '65px' }}
                         />
-                        
+
                         {PageData.length > 0 && (
                           <div
                             dangerouslySetInnerHTML={{
@@ -190,6 +190,6 @@ export const loadData = id => {
   return Promise.all([HomeServices.getBlogData(id)]);
 };
 
-export const getMetaData = () => {
-  return HomeServices.getMetaData('Unveiling Key Insights');
+export const getMetaData = id => {
+  return HomeServices.getMetaData(id);
 };
