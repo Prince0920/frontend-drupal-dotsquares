@@ -194,7 +194,10 @@ const renderResponse = async (req, res, next) => {
                         metaData.description ||
                         'Looking for a Drupal development company you can rely on? Get a supportive Drupal Web Development experience with care and precision with Dotsquares. Get a Free Consultation today.'
                       }" />
-      <meta property="og:image" content="https://drupal1.24livehost.com/assets/images/ds-drupal.png" />
+      <meta property="og:image" content="${
+        metaData.image_src ||
+        'https://drupal1.24livehost.com/assets/images/ds-drupal.png'
+      }" />
                       <meta name="twitter:title" content="${
                         metaData.title ||
                         'Hire Drupal Developers At Dotsquares | Drupal Development Company'
